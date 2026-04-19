@@ -1,0 +1,5 @@
+{
+  "$schema": "https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-schema/a2i-data-attributes-schema.json",
+  "title": "DataAttributes Example",
+  "description": "An example of the Amazon Augmented AI DataAttributes object."
+}

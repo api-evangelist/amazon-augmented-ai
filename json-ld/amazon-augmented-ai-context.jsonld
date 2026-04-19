@@ -1,0 +1,10 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "a2i": "https://aws.amazon.com/augmented-ai/",
+    "HumanLoop": "a2i:HumanLoop",
+    "HumanLoopName": "a2i:humanLoopName",
+    "FlowDefinition": "a2i:FlowDefinition",
+    "HumanTaskUI": "a2i:HumanTaskUI"
+  }
+}

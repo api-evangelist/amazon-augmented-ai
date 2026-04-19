@@ -1,0 +1,100 @@
+rules:
+  a2i-operation-id-camel-case:
+    description: All operationIds must be camelCase
+    message: "{{property}} must be camelCase"
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  a2i-summary-prefix:
+    description: All operation summaries must start with Amazon Augmented AI
+    message: Summary must start with Amazon Augmented AI
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^Amazon Augmented AI"
+
+  a2i-has-tags:
+    description: All operations must have tags
+    message: Operation must have at least one tag
+    severity: warn
+    given: "$.paths[*][*]"
+    then:
+      field: tags
+      function: truthy
+
+  a2i-response-200:
+    description: All operations must have a 200 response
+    message: Operation must define a 200 response
+    severity: error
+    given: "$.paths[*][*].responses"
+    then:
+      field: "200"
+      function: truthy
+
+  a2i-human-loop-name-required:
+    description: StartHumanLoopRequest must require HumanLoopName
+    message: StartHumanLoopRequest must have HumanLoopName as required
+    severity: error
+    given: "$.components.schemas.StartHumanLoopRequest"
+    then:
+      field: required
+      function: truthy
+
+  a2i-human-loop-status-enum:
+    description: HumanLoopStatus must use valid enum values
+    message: HumanLoopStatus must be InProgress, Failed, Completed, Stopped, or Stopping
+    severity: error
+    given: "$.components.schemas.HumanLoopSummary.properties.HumanLoopStatus"
+    then:
+      field: enum
+      function: truthy
+
+  a2i-security-sigv4:
+    description: API must use sigv4 security scheme
+    message: Security must include sigv4
+    severity: error
+    given: "$.security[*]"
+    then:
+      field: sigv4
+      function: defined
+
+  a2i-server-url-fixed:
+    description: Server URL must be fixed without variables
+    message: Server URL must not use variables
+    severity: warn
+    given: "$.servers[*]"
+    then:
+      field: variables
+      function: falsy
+
+  a2i-example-microcks-default:
+    description: All examples must have x-microcks-default set to true
+    message: Example must have x-microcks-default true
+    severity: warn
+    given: "$.paths[*][*].responses[*].content[*].examples.default"
+    then:
+      field: x-microcks-default
+      function: truthy
+
+  a2i-human-loop-input-required:
+    description: StartHumanLoopRequest must require HumanLoopInput
+    message: StartHumanLoopRequest must have HumanLoopInput as required
+    severity: error
+    given: "$.components.schemas.StartHumanLoopRequest.required"
+    then:
+      function: truthy
+
+  a2i-flow-definition-arn-required:
+    description: StartHumanLoopRequest must require FlowDefinitionArn
+    message: StartHumanLoopRequest must have FlowDefinitionArn as required
+    severity: error
+    given: "$.components.schemas.StartHumanLoopRequest.properties.FlowDefinitionArn"
+    then:
+      field: type
+      function: truthy

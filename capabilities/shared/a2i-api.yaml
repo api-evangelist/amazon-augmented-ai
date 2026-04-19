@@ -1,0 +1,149 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: Amazon Augmented AI API
+  description: Shared capability definition for the Amazon Augmented AI (A2I) API covering human loops for human review of machine learning predictions.
+  tags:
+    - Amazon Augmented AI
+    - Human In The Loop
+    - Machine Learning
+    - AI Review
+    - AWS
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+      AWS_REGION: AWS_REGION
+
+capability:
+  consumes:
+    - type: http
+      namespace: a2i
+      baseUri: https://a2i-runtime.sagemaker.us-east-1.amazonaws.com
+      description: Amazon Augmented AI for human review of ML predictions.
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "{{AWS_ACCESS_KEY_ID}}"
+        placement: header
+      resources:
+        - name: human-loops
+          path: /human-loops
+          description: Manage human review loops.
+          operations:
+            - name: list-human-loops
+              method: GET
+              description: Lists all human loops.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: start-human-loop
+              method: POST
+              description: Starts a new human loop.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: human-loop
+          path: /human-loops/{HumanLoopName}
+          description: Manage a specific human loop.
+          operations:
+            - name: describe-human-loop
+              method: GET
+              description: Gets details of a human loop.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: delete-human-loop
+              method: DELETE
+              description: Deletes a human loop.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: stop-human-loop
+          path: /human-loops/stop
+          description: Stop a running human loop.
+          operations:
+            - name: stop-human-loop
+              method: POST
+              description: Stops a running human loop.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: a2i-rest
+      resources:
+        - path: /v1/human-loops
+          name: human-loops
+          description: Human review loops
+          operations:
+            - method: GET
+              name: list-human-loops
+              description: List human loops
+              call: "a2i.list-human-loops"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: a2i-mcp
+      transport: http
+      tools:
+        - name: list-human-loops
+          description: List all human review loops for a flow definition.
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "a2i.list-human-loops"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: start-human-loop
+          description: Start a new human review loop to get human review of an ML prediction.
+          hints:
+            readOnly: false
+            openWorld: false
+          call: "a2i.start-human-loop"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: describe-human-loop
+          description: Get the status and output of a specific human review loop.
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "a2i.describe-human-loop"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: stop-human-loop
+          description: Stop an in-progress human review loop.
+          hints:
+            readOnly: false
+            openWorld: false
+          call: "a2i.stop-human-loop"
+          outputParameters:
+            - type: object
+              mapping: "$."

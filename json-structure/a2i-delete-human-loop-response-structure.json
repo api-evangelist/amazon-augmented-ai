@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-structure/a2i-delete-human-loop-response-structure.json",
+  "title": "DeleteHumanLoopResponse",
+  "description": "JSON Structure for the Amazon Augmented AI DeleteHumanLoopResponse object.",
+  "type": "object",
+  "properties": {}
+}

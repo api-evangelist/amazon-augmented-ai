@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-structure/a2i-list-human-loops-response-structure.json",
+  "title": "ListHumanLoopsResponse",
+  "description": "JSON Structure for the Amazon Augmented AI ListHumanLoopsResponse object.",
+  "type": "object",
+  "properties": {}
+}

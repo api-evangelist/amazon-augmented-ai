@@ -1,0 +1,5 @@
+{
+  "$schema": "https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-schema/a2i-start-human-loop-request-schema.json",
+  "title": "StartHumanLoopRequest Example",
+  "description": "An example of the Amazon Augmented AI StartHumanLoopRequest object."
+}

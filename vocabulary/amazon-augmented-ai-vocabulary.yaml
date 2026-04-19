@@ -1,0 +1,106 @@
+vocabulary:
+  label: Amazon Augmented AI Vocabulary
+  description: Core terms, actions, and workflows for the Amazon Augmented AI human-in-the-loop review service.
+  tags:
+    - Amazon Augmented AI
+    - Human In The Loop
+    - Machine Learning
+    - AI Review
+    - AWS
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+resources:
+  - name: HumanLoop
+    description: A human review task created when an ML prediction requires human judgment, associated with a flow definition.
+    properties:
+      - HumanLoopName
+      - HumanLoopArn
+      - HumanLoopStatus
+      - FlowDefinitionArn
+      - CreationTime
+      - HumanLoopOutput
+    related:
+      - FlowDefinition
+      - HumanLoopInput
+      - HumanLoopOutput
+
+  - name: HumanLoopInput
+    description: The input data provided to human reviewers in a human loop, serialized as a JSON string.
+    properties:
+      - InputContent
+    related:
+      - HumanLoop
+
+  - name: HumanLoopOutput
+    description: The S3 location where human reviewer responses are stored after a loop completes.
+    properties:
+      - OutputS3Uri
+    related:
+      - HumanLoop
+
+  - name: DataAttributes
+    description: Attributes that specify the nature of the content in a human loop to ensure appropriate handling.
+    properties:
+      - ContentClassifiers
+    related:
+      - HumanLoop
+
+actions:
+  - name: StartHumanLoop
+    description: Start a human review loop for an ML prediction requiring human judgment.
+    resource: HumanLoop
+    method: POST
+    path: /human-loops
+
+  - name: ListHumanLoops
+    description: List all human review loops for a specific flow definition.
+    resource: HumanLoop
+    method: GET
+    path: /human-loops
+
+  - name: DescribeHumanLoop
+    description: Get the status and output details of a specific human review loop.
+    resource: HumanLoop
+    method: GET
+    path: /human-loops/{HumanLoopName}
+
+  - name: DeleteHumanLoop
+    description: Delete a completed or stopped human review loop.
+    resource: HumanLoop
+    method: DELETE
+    path: /human-loops/{HumanLoopName}
+
+  - name: StopHumanLoop
+    description: Stop an in-progress human review loop.
+    resource: HumanLoop
+    method: POST
+    path: /human-loops/stop
+
+workflows:
+  - name: HumanReviewML
+    description: End-to-end workflow for routing ML predictions to human reviewers using Amazon A2I.
+    steps:
+      - action: StartHumanLoop
+        description: Route the ML prediction to human reviewers
+      - action: DescribeHumanLoop
+        description: Poll the human loop status until completion
+      - action: ListHumanLoops
+        description: Review completed human loops and retrieve results
+
+personas:
+  - name: ML Engineer
+    description: Integrates human review into ML pipelines to improve model accuracy and handle edge cases.
+    actions:
+      - StartHumanLoop
+      - ListHumanLoops
+      - DescribeHumanLoop
+      - StopHumanLoop
+      - DeleteHumanLoop
+
+  - name: Operations Manager
+    description: Monitors the human review queue, manages reviewer capacity, and tracks SLA compliance.
+    actions:
+      - ListHumanLoops
+      - DescribeHumanLoop
+      - StopHumanLoop

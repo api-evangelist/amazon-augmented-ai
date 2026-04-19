@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-schema/a2i-human-loop-output-schema.json",
+  "title": "HumanLoopOutput",
+  "description": "JSON Schema for the Amazon Augmented AI HumanLoopOutput object.",
+  "type": "object",
+  "properties": {}
+}

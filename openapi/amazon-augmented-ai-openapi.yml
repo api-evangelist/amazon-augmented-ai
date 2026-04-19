@@ -1,0 +1,346 @@
+openapi: 3.1.0
+info:
+  title: Amazon Augmented AI (A2I) API
+  description: >-
+    Amazon Augmented AI (Amazon A2I) is a machine learning service that makes it easy to build the workflows required for human review of ML predictions. Amazon A2I brings human review to all developers, removing the undifferentiated heavy lifting associated with building human review systems or managing large numbers of human reviewers.
+  version: '2019-11-07'
+  contact:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: https://a2i-runtime.sagemaker.us-east-1.amazonaws.com
+    description: Amazon Augmented AI runtime API endpoint
+security:
+  - sigv4: []
+tags:
+  - name: Human Loops
+    description: Operations for creating and managing human review loops
+  - name: Human Task UIs
+    description: Operations for managing human task user interfaces
+  - name: Flow Definitions
+    description: Operations for managing human review flow definitions
+paths:
+  /human-loops:
+    get:
+      operationId: listHumanLoops
+      summary: Amazon Augmented AI List Human Loops
+      description: Returns information about human review work items, called human loops.
+      tags:
+        - Human Loops
+      x-microcks-operation:
+        delay: 100
+        dispatcher: QUERY_MATCH
+      parameters:
+        - name: CreationTimeAfter
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: CreationTimeBefore
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: FlowDefinitionArn
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: SortOrder
+          in: query
+          schema:
+            type: string
+            enum:
+              - Ascending
+              - Descending
+        - name: NextToken
+          in: query
+          schema:
+            type: string
+        - name: MaxResults
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Human loops listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListHumanLoopsResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    HumanLoopSummaries:
+                      - HumanLoopName: "my-human-loop"
+                        HumanLoopStatus: "Completed"
+                        CreationTime: "2024-01-15T10:30:00Z"
+                        FlowDefinitionArn: "arn:aws:sagemaker:us-east-1:123456789012:flow-definition/my-flow"
+                    NextToken: ""
+    post:
+      operationId: startHumanLoop
+      summary: Amazon Augmented AI Start Human Loop
+      description: Starts a human loop, provided that at least one activation condition is met.
+      tags:
+        - Human Loops
+      x-microcks-operation:
+        delay: 100
+        dispatcher: QUERY_MATCH
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartHumanLoopRequest'
+            examples:
+              default:
+                x-microcks-default: true
+                value:
+                  HumanLoopName: "my-human-loop"
+                  FlowDefinitionArn: "arn:aws:sagemaker:us-east-1:123456789012:flow-definition/my-flow"
+                  HumanLoopInput:
+                    InputContent: "{\"taskObject\": \"s3://my-bucket/image.jpg\"}"
+                  DataAttributes:
+                    ContentClassifiers:
+                      - FreeOfPersonallyIdentifiableInformation
+      responses:
+        '200':
+          description: Human loop started successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StartHumanLoopResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    HumanLoopArn: "arn:aws:sagemaker:us-east-1:123456789012:human-loop/my-human-loop"
+                    HumanLoopActivationResults:
+                      HumanLoopActivationReason: "ConditionMet"
+  /human-loops/{HumanLoopName}:
+    get:
+      operationId: describeHumanLoop
+      summary: Amazon Augmented AI Describe Human Loop
+      description: Returns information about the specified human loop.
+      tags:
+        - Human Loops
+      x-microcks-operation:
+        delay: 100
+        dispatcher: QUERY_MATCH
+      parameters:
+        - name: HumanLoopName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Human loop described successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeHumanLoopResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    HumanLoopName: "my-human-loop"
+                    HumanLoopArn: "arn:aws:sagemaker:us-east-1:123456789012:human-loop/my-human-loop"
+                    FlowDefinitionArn: "arn:aws:sagemaker:us-east-1:123456789012:flow-definition/my-flow"
+                    HumanLoopStatus: "Completed"
+                    CreationTime: "2024-01-15T10:30:00Z"
+                    HumanLoopOutput:
+                      OutputS3Uri: "s3://my-bucket/output/my-human-loop.json"
+    delete:
+      operationId: deleteHumanLoop
+      summary: Amazon Augmented AI Delete Human Loop
+      description: Deletes the specified human loop for a flow definition.
+      tags:
+        - Human Loops
+      x-microcks-operation:
+        delay: 100
+        dispatcher: QUERY_MATCH
+      parameters:
+        - name: HumanLoopName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Human loop deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteHumanLoopResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value: {}
+  /human-loops/stop:
+    post:
+      operationId: stopHumanLoop
+      summary: Amazon Augmented AI Stop Human Loop
+      description: Stops the specified human loop.
+      tags:
+        - Human Loops
+      x-microcks-operation:
+        delay: 100
+        dispatcher: QUERY_MATCH
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StopHumanLoopRequest'
+            examples:
+              default:
+                x-microcks-default: true
+                value:
+                  HumanLoopName: "my-human-loop"
+      responses:
+        '200':
+          description: Human loop stopped successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StopHumanLoopResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value: {}
+components:
+  securitySchemes:
+    sigv4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4
+  schemas:
+    HumanLoopSummary:
+      type: object
+      properties:
+        HumanLoopName:
+          type: string
+          description: The name of the human loop
+        HumanLoopStatus:
+          type: string
+          enum:
+            - InProgress
+            - Failed
+            - Completed
+            - Stopped
+            - Stopping
+        CreationTime:
+          type: string
+          format: date-time
+        FailureReason:
+          type: string
+        FlowDefinitionArn:
+          type: string
+    HumanLoopInput:
+      type: object
+      required:
+        - InputContent
+      properties:
+        InputContent:
+          type: string
+          description: Serialized input from the human loop. The input must be a string representation of a file in JSON format.
+    HumanLoopOutput:
+      type: object
+      properties:
+        OutputS3Uri:
+          type: string
+          description: The location of the Amazon S3 object where Amazon A2I stores your human loop output.
+    HumanLoopActivationResults:
+      type: object
+      properties:
+        HumanLoopActivationReason:
+          type: string
+        HumanLoopActivationConditionsEvaluationResults:
+          type: string
+    DataAttributes:
+      type: object
+      properties:
+        ContentClassifiers:
+          type: array
+          items:
+            type: string
+            enum:
+              - FreeOfPersonallyIdentifiableInformation
+              - FreeOfAdultContent
+    StartHumanLoopRequest:
+      type: object
+      required:
+        - HumanLoopName
+        - FlowDefinitionArn
+        - HumanLoopInput
+      properties:
+        HumanLoopName:
+          type: string
+          description: The name of the human loop
+        FlowDefinitionArn:
+          type: string
+          description: The Amazon Resource Name (ARN) of the flow definition associated with this human loop
+        HumanLoopInput:
+          $ref: '#/components/schemas/HumanLoopInput'
+        DataAttributes:
+          $ref: '#/components/schemas/DataAttributes'
+    StartHumanLoopResponse:
+      type: object
+      properties:
+        HumanLoopArn:
+          type: string
+          description: The Amazon Resource Name (ARN) of the human loop
+        HumanLoopActivationResults:
+          $ref: '#/components/schemas/HumanLoopActivationResults'
+    DescribeHumanLoopResponse:
+      type: object
+      properties:
+        CreationTime:
+          type: string
+          format: date-time
+        FailureReason:
+          type: string
+        FailureCode:
+          type: string
+        HumanLoopStatus:
+          type: string
+          enum:
+            - InProgress
+            - Failed
+            - Completed
+            - Stopped
+            - Stopping
+        HumanLoopName:
+          type: string
+        HumanLoopArn:
+          type: string
+        FlowDefinitionArn:
+          type: string
+        HumanLoopOutput:
+          $ref: '#/components/schemas/HumanLoopOutput'
+    DeleteHumanLoopResponse:
+      type: object
+    StopHumanLoopRequest:
+      type: object
+      required:
+        - HumanLoopName
+      properties:
+        HumanLoopName:
+          type: string
+    StopHumanLoopResponse:
+      type: object
+    ListHumanLoopsResponse:
+      type: object
+      properties:
+        HumanLoopSummaries:
+          type: array
+          items:
+            $ref: '#/components/schemas/HumanLoopSummary'
+        NextToken:
+          type: string

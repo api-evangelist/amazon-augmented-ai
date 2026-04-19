@@ -1,16 +1,104 @@
 aid: amazon-augmented-ai
-name: Amazon Augmented Ai
+name: Amazon Augmented AI
 description: >-
-  Amazon Augmented Ai provides API capabilities.
+  Amazon Augmented AI (Amazon A2I) is a machine learning service that makes it easy to build the workflows required for human review of ML predictions. Amazon A2I brings human review to all developers, removing the undifferentiated heavy lifting associated with building human review systems or managing large numbers of human reviewers.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags: []
+tags:
+  - Amazon Augmented AI
+  - Human In The Loop
+  - Machine Learning
+  - AI Review
+  - AWS
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-03-16'
+modified: '2026-04-19'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: amazon-augmented-ai:amazon-augmented-ai-api
+    name: Amazon Augmented AI API
+    description: >-
+      REST runtime API for Amazon Augmented AI covering human loops for human review of machine learning predictions.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html
+    baseURL: https://a2i-runtime.sagemaker.us-east-1.amazonaws.com
+    tags:
+      - Amazon Augmented AI
+      - Human In The Loop
+      - Machine Learning
+      - AI Review
+      - AWS
+    properties:
+      - type: OpenAPI
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/openapi/amazon-augmented-ai-openapi.yml
+      - type: SpectralRules
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/rules/amazon-augmented-ai-spectral-rules.yml
+      - type: NaftikoCapability
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/capabilities/shared/a2i-api.yaml
+      - type: NaftikoCapability
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/capabilities/human-review-workflow.yaml
+      - type: Vocabulary
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/vocabulary/amazon-augmented-ai-vocabulary.yaml
+      - type: JSONSchema
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-schema/a2i-human-loop-summary-schema.json
+      - type: JSONSchema
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-schema/a2i-start-human-loop-request-schema.json
+      - type: JSONStructure
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-structure/a2i-human-loop-summary-structure.json
+      - type: JSONStructure
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-structure/a2i-describe-human-loop-response-structure.json
+      - type: JSONLD
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-ld/amazon-augmented-ai-context.jsonld
+      - type: Example
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/examples/a2i-start-human-loop-request-example.json
+      - type: Example
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/examples/a2i-describe-human-loop-response-example.json
+common:
+  - type: Features
+    data:
+      - Human review integration for Amazon Rekognition and Amazon Textract
+      - Custom flow definitions for any ML use case
+      - Built-in worker task templates for common review tasks
+      - Integration with Amazon SageMaker Ground Truth for workforce management
+      - Private, vendor, and Amazon Mechanical Turk workforce support
+      - Automatic routing based on ML confidence scores
+      - Audit trail with evidence of human review decisions
+      - Scalable workforce management across thousands of reviewers
+      - Pre-built UI templates for image and text review tasks
+      - Compliance support with PII content classifiers
+  - type: UseCases
+    data:
+      - Review low-confidence document text extraction results
+      - Validate image classification predictions before deployment
+      - Moderate user-generated content with human reviewers
+      - Ensure accuracy of medical record processing
+      - Verify identity document data extraction results
+      - Build training datasets with human-verified labels
+  - type: Integrations
+    data:
+      - Amazon SageMaker
+      - Amazon Rekognition
+      - Amazon Textract
+      - Amazon S3
+      - Amazon SageMaker Ground Truth
+      - Amazon Mechanical Turk
+      - AWS IAM
+      - Amazon CloudWatch
+      - AWS Lambda
+      - Amazon SNS
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

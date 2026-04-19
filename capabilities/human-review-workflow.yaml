@@ -1,0 +1,103 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: Human Review Workflow
+  description: Workflow capability for managing human-in-the-loop review of machine learning predictions using Amazon Augmented AI.
+  tags:
+    - Amazon Augmented AI
+    - Human In The Loop
+    - Machine Learning
+    - AI Review
+    - AWS
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+imports:
+  - namespace: a2i
+    from: shared/a2i-api.yaml
+
+capability:
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: human-review-rest
+      resources:
+        - path: /v1/human-loops
+          name: human-loops
+          description: Human review loop management
+          operations:
+            - method: POST
+              name: start-human-loop
+              description: Start a human review loop
+              call: "a2i.start-human-loop"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: GET
+              name: list-human-loops
+              description: List human review loops
+              call: "a2i.list-human-loops"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: human-review-mcp
+      transport: http
+      tools:
+        - name: start-human-loop
+          description: Initiate human review of an ML prediction by starting a new human loop.
+          hints:
+            readOnly: false
+            openWorld: false
+          call: "a2i.start-human-loop"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-human-loops
+          description: List all human review loops to track review progress and status.
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "a2i.list-human-loops"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: describe-human-loop
+          description: Get the current status and output of a specific human review loop.
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "a2i.describe-human-loop"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: stop-human-loop
+          description: Stop an in-progress human review loop when review is no longer needed.
+          hints:
+            readOnly: false
+            openWorld: false
+          call: "a2i.stop-human-loop"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+personas:
+  - name: ML Engineer
+    description: Integrates human review into ML workflows to improve prediction quality.
+    tools:
+      - start-human-loop
+      - list-human-loops
+      - describe-human-loop
+      - stop-human-loop
+
+  - name: Operations Manager
+    description: Monitors human review queues and manages reviewer workloads.
+    tools:
+      - list-human-loops
+      - describe-human-loop
+      - stop-human-loop

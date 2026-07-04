@@ -1,0 +1,29 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Amazon Augmented AI (A2I) API
+  version: 1.0.0
+extends: openapi/amazon-augmented-ai-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: amazon-augmented-ai
+      x-apievangelist-topics:
+        - Human In The Loop
+        - Machine Learning
+        - AI Review
+        - AWS
+      x-apievangelist-auth: aws-sigv4
+  - target: $.info
+    update:
+      x-apievangelist-artifacts:
+        packages: packages/amazon-augmented-ai-packages.yml
+        llms: llms/amazon-augmented-ai-llms.txt
+        errors: errors/amazon-augmented-ai-problem-types.yml
+        conformance: conformance/amazon-augmented-ai-conformance.yml
+        lifecycle: lifecycle/amazon-augmented-ai-lifecycle.yml
+  - target: $.tags
+    update:
+      - name: Human Loops
+        description: >-
+          Runtime operations for creating, listing, describing, stopping and
+          deleting human review work items (human loops).

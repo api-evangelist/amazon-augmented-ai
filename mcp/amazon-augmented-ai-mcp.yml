@@ -1,0 +1,28 @@
+generated: '2026-06-20'
+method: derived
+status: candidate
+source: openapi/amazon-augmented-ai-openapi.yml
+notes: >-
+  No official hosted/remote MCP server is published by AWS for the Amazon
+  Augmented AI (A2I) runtime API (checked AWS docs, the awslabs/mcp catalog and
+  the @modelcontextprotocol npm scope). Tool list below is a candidate derived
+  one-to-one from OpenAPI operationIds; it is not an endorsed AWS MCP server.
+server:
+  name: amazon-augmented-ai
+  transport: stdio
+tools:
+  - name: list_human_loops
+    description: Returns information about human review work items, called human loops.
+    source_operation: openapi/amazon-augmented-ai-openapi.yml#listHumanLoops
+  - name: start_human_loop
+    description: Starts a human loop, provided that at least one activation condition is met.
+    source_operation: openapi/amazon-augmented-ai-openapi.yml#startHumanLoop
+  - name: describe_human_loop
+    description: Returns information about the specified human loop.
+    source_operation: openapi/amazon-augmented-ai-openapi.yml#describeHumanLoop
+  - name: delete_human_loop
+    description: Deletes the specified human loop for a flow definition.
+    source_operation: openapi/amazon-augmented-ai-openapi.yml#deleteHumanLoop
+  - name: stop_human_loop
+    description: Stops the specified human loop.
+    source_operation: openapi/amazon-augmented-ai-openapi.yml#stopHumanLoop

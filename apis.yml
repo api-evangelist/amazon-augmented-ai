@@ -13,7 +13,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-04-19'
+modified: '2026-06-20'
 specificationVersion: '0.19'
 apis:
   - aid: amazon-augmented-ai:amazon-augmented-ai-api
@@ -66,7 +66,23 @@ apis:
       - type: Example
         url: >-
           https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/examples/a2i-describe-human-loop-response-example.json
+      - type: Overlay
+        url: overlays/amazon-augmented-ai-openapi-overlay.yaml
+      - type: MCPServer
+        url: mcp/amazon-augmented-ai-mcp.yml
+      - type: ErrorCatalog
+        url: errors/amazon-augmented-ai-problem-types.yml
+      - type: Conformance
+        url: conformance/amazon-augmented-ai-conformance.yml
+      - type: Lifecycle
+        url: lifecycle/amazon-augmented-ai-lifecycle.yml
 common:
+  - type: Packages
+    url: packages/amazon-augmented-ai-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-augmented-ai-llms.txt
+  - type: WellKnown
+    url: well-known/amazon-augmented-ai-well-known.yml
   - type: Features
     data:
       - Human review integration for Amazon Rekognition and Amazon Textract

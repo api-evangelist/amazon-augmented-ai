@@ -1,0 +1,55 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  AWS SDK client registries (npm, PyPI, Maven Central, pkg.go.dev, RubyGems,
+  Packagist, crates.io, NuGet); Amazon Augmented AI Runtime is exposed as the
+  "sagemaker-a2i-runtime" client across the official AWS SDK family.
+packages:
+  - language: javascript
+    registry: npm
+    name: "@aws-sdk/client-sagemaker-a2i-runtime"
+    url: https://www.npmjs.com/package/@aws-sdk/client-sagemaker-a2i-runtime
+    install: npm install @aws-sdk/client-sagemaker-a2i-runtime
+    official: true
+  - language: python
+    registry: pypi
+    name: boto3
+    url: https://pypi.org/project/boto3/
+    install: pip install boto3
+    client: boto3.client('sagemaker-a2i-runtime')
+    official: true
+  - language: java
+    registry: maven
+    name: software.amazon.awssdk:sagemakera2iruntime
+    url: https://repo1.maven.org/maven2/software/amazon/awssdk/sagemakera2iruntime/
+    official: true
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/aws/aws-sdk-go-v2/service/sagemakera2iruntime
+    url: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sagemakera2iruntime
+    install: go get github.com/aws/aws-sdk-go-v2/service/sagemakera2iruntime
+    official: true
+  - language: ruby
+    registry: rubygems
+    name: aws-sdk-augmentedairuntime
+    url: https://rubygems.org/gems/aws-sdk-augmentedairuntime
+    install: gem install aws-sdk-augmentedairuntime
+    official: true
+  - language: php
+    registry: packagist
+    name: aws/aws-sdk-php
+    url: https://packagist.org/packages/aws/aws-sdk-php
+    install: composer require aws/aws-sdk-php
+    official: true
+  - language: rust
+    registry: crates.io
+    name: aws-sdk-sagemakera2iruntime
+    url: https://crates.io/crates/aws-sdk-sagemakera2iruntime
+    install: cargo add aws-sdk-sagemakera2iruntime
+    official: true
+  - language: dotnet
+    registry: nuget
+    name: AWSSDK.AugmentedAIRuntime
+    url: https://www.nuget.org/packages/AWSSDK.AugmentedAIRuntime
+    install: dotnet add package AWSSDK.AugmentedAIRuntime
+    official: true

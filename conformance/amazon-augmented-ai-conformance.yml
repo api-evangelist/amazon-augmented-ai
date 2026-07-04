@@ -1,0 +1,37 @@
+generated: '2026-06-20'
+method: derived
+source: >-
+  openapi/amazon-augmented-ai-openapi.yml and Amazon Augmented AI API Reference
+  (docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference)
+standards:
+  - id: aws-sigv4
+    conforms: true
+    evidence: security requires sigv4; docs CommonErrors reference IncompleteSignature / UnrecognizedClientException
+  - id: oauth2
+    conforms: false
+    evidence: no oauth2 securityScheme; authentication is AWS Signature Version 4
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: error responses use AWS JSON exception shape (application/json), not application/problem+json
+  - id: pagination
+    conforms: true
+    evidence: listHumanLoops uses NextToken + MaxResults token pagination
+  - id: idempotency
+    conforms: true
+    evidence: >-
+      startHumanLoop is idempotent on HumanLoopName; a duplicate name with
+      different input returns ConflictException (409)
+  - id: fhir-r4
+    conforms: false
+  - id: scim2
+    conforms: false
+  - id: odata
+    conforms: false
+  - id: json-api
+    conforms: false
+  - id: fapi
+    conforms: false
+  - id: psd2
+    conforms: false

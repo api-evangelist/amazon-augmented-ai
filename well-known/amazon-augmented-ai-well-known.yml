@@ -1,0 +1,18 @@
+generated: '2026-06-20'
+method: searched
+source: probed base host from apis.yml baseURL / openapi servers[]
+host: https://a2i-runtime.sagemaker.us-east-1.amazonaws.com
+notes: >-
+  AWS SigV4-signed service endpoint. All /.well-known/ probes return HTTP 403
+  (request must be SigV4-signed); no public discovery documents are served.
+documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403

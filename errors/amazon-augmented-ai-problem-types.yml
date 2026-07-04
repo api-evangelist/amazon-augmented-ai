@@ -1,0 +1,89 @@
+generated: '2026-06-20'
+method: searched
+format: aws-json
+source: >-
+  https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/CommonErrors.md
+  and per-operation Errors sections in the Amazon Augmented AI API Reference.
+notes: >-
+  The OpenAPI in this repo documents only 200 responses. Error definitions below
+  are taken from the AWS API Reference. Amazon A2I returns AWS JSON exceptions
+  (an __type/message body), not RFC 9457 application/problem+json.
+operation_problems:
+  - status: 409
+    type: ConflictException
+    title: Conflicting human loop name with different input data
+    remediation: >-
+      Use a unique HumanLoopName, or reuse the existing name only with identical
+      input data.
+    source_operation: openapi/amazon-augmented-ai-openapi.yml#startHumanLoop
+  - status: 402
+    type: ServiceQuotaExceededException
+    title: Service quota exceeded
+    remediation: Delete resources or request a service quota increase via Service Quotas.
+    source_operation: openapi/amazon-augmented-ai-openapi.yml#startHumanLoop
+  - status: 404
+    type: ResourceNotFoundException
+    title: Human loop resource not found
+    remediation: Verify the HumanLoopName; a deleted human loop returns this error.
+    source_operation: openapi/amazon-augmented-ai-openapi.yml#describeHumanLoop
+  - status: 400
+    type: ValidationException
+    title: Request is not valid
+    remediation: Check the request syntax and parameter constraints, then retry.
+    source_operation: openapi/amazon-augmented-ai-openapi.yml#startHumanLoop
+  - status: 429
+    type: ThrottlingException
+    title: Request rate too high
+    remediation: Reduce request frequency; AWS SDKs retry this automatically.
+    source_operation: openapi/amazon-augmented-ai-openapi.yml#startHumanLoop
+  - status: 500
+    type: InternalServerException
+    title: Server-side processing error
+    remediation: Retry later; contact AWS Support if the problem persists.
+    source_operation: openapi/amazon-augmented-ai-openapi.yml#startHumanLoop
+common_problems:
+  - status: 403
+    type: AccessDeniedException
+    title: Caller does not have permission for this action
+  - status: 403
+    type: ExpiredTokenException
+    title: Security token has expired
+  - status: 403
+    type: IncompleteSignature
+    title: Request signature does not conform to AWS standards
+  - status: 500
+    type: InternalFailure
+    title: Internal server issue
+  - status: 400
+    type: MalformedHttpRequestException
+    title: Request body cannot be processed
+  - status: 401
+    type: NotAuthorized
+    title: Missing permissions for this action
+  - status: 403
+    type: OptInRequired
+    title: AWS account needs a subscription for this service
+  - status: 400
+    type: RequestAbortedException
+    title: Request aborted before a response was returned
+  - status: 413
+    type: RequestEntityTooLargeException
+    title: Request entity too large
+  - status: 408
+    type: RequestTimeoutException
+    title: Request timed out
+  - status: 503
+    type: ServiceUnavailable
+    title: Service temporarily unavailable
+  - status: 400
+    type: ThrottlingException
+    title: Request rate too high
+  - status: 404
+    type: UnknownOperationException
+    title: Action or operation not recognized
+  - status: 403
+    type: UnrecognizedClientException
+    title: Access key ID or certificate not recognized
+  - status: 400
+    type: ValidationError
+    title: Input does not meet required format or constraints

@@ -1,0 +1,24 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  Amazon Augmented AI API Reference (docs.aws.amazon.com/augmented-ai/2019-11-07),
+  AWS SDK/API versioning conventions, and AWS Health Dashboard.
+versioning:
+  scheme: date-stamped-service-version
+  current: '2019-11-07'
+  docs: https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html
+  notes: >-
+    AWS pins the A2I runtime API to the 2019-11-07 service version; SDK clients
+    send this version and AWS maintains backward compatibility within it.
+deprecation:
+  policy_url: https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html
+  sunset_header: false
+  notes: >-
+    AWS communicates service and API deprecations via service announcements and
+    the AWS Health Dashboard rather than RFC 8594 Sunset/Deprecation headers.
+sla:
+  url: https://aws.amazon.com/sagemaker/sla/
+  notes: >-
+    Amazon A2I is part of the Amazon SageMaker service; SageMaker SLA applies.
+status_page: https://health.aws.amazon.com/health/status
+deprecated_operations: []

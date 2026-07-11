@@ -77,6 +77,12 @@ apis:
       - type: Lifecycle
         url: lifecycle/amazon-augmented-ai-lifecycle.yml
 common:
+  - type: VulnerabilityDisclosure
+    url: security/amazon-augmented-ai-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-augmented-ai-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-augmented-ai-authentication.yml
   - type: Packages
     url: packages/amazon-augmented-ai-packages.yml
   - type: LLMsTxt

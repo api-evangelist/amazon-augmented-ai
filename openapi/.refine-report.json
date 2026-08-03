@@ -1,0 +1,14 @@
+{
+  "provider": "amazon-augmented-ai",
+  "sources": [
+    "amazon-augmented-ai-human-loops-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-augmented-ai-human-loops-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

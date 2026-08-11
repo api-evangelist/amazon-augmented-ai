@@ -78,6 +78,10 @@ apis:
   - type: Lifecycle
     url: lifecycle/amazon-augmented-ai-lifecycle.yml
 common:
+  - type: MCPServer
+    url: mcp/amazon-augmented-ai-mcp.yml
+  - type: Overlay
+    url: overlays/amazon-augmented-ai-openapi-overlay.yaml
   - type: AgenticAccess
     url: agentic-access/amazon-augmented-ai-agentic-access.yml
   - type: VulnerabilityDisclosure

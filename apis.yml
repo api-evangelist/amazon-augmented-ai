@@ -1,7 +1,9 @@
 aid: amazon-augmented-ai
 name: Amazon Augmented AI
 description: >-
-  Amazon Augmented AI (Amazon A2I) is a machine learning service that makes it easy to build the workflows required for human review of ML predictions. Amazon A2I brings human review to all developers, removing the undifferentiated heavy lifting associated with building human review systems or managing large numbers of human reviewers.
+  Amazon Augmented AI (Amazon A2I) is a machine learning service that makes it easy to build the workflows required for
+  human review of ML predictions. Amazon A2I brings human review to all developers, removing the undifferentiated heavy
+  lifting associated with building human review systems or managing large numbers of human reviewers.
 type: Index
 accessModel:
   pricing: unknown
@@ -12,7 +14,7 @@ accessModel:
   label: Self-serve signup
   confidence: medium
   source:
-  - authentication
+    - authentication
   generated: '2026-07-22'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-augmented-ai.png
@@ -22,61 +24,54 @@ tags:
   - Machine Learning
   - AI Review
   - AWS
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/apis.yml
 created: '2026-03-16'
 modified: '2026-06-20'
 specificationVersion: '0.19'
 apis:
-- aid: amazon-augmented-ai:amazon-augmented-ai-human-loops-api
-  name: Amazon Augmented AI Human Loops API
-  description: Operations for creating and managing human review loops
-  humanURL: https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html
-  baseURL: https://a2i-runtime.sagemaker.us-east-1.amazonaws.com
-  tags:
-  - Human Loops
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-augmented-ai-human-loops-api-openapi.yml
-  - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/rules/amazon-augmented-ai-spectral-rules.yml
-  - type: NaftikoCapability
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/capabilities/shared/a2i-api.yaml
-  - type: NaftikoCapability
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/capabilities/human-review-workflow.yaml
-  - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/vocabulary/amazon-augmented-ai-vocabulary.yaml
-  - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-schema/a2i-human-loop-summary-schema.json
-  - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-schema/a2i-start-human-loop-request-schema.json
-  - type: JSONStructure
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-structure/a2i-human-loop-summary-structure.json
-  - type: JSONStructure
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-structure/a2i-describe-human-loop-response-structure.json
-  - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-ld/amazon-augmented-ai-context.jsonld
-  - type: Example
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/examples/a2i-start-human-loop-request-example.json
-  - type: Example
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/examples/a2i-describe-human-loop-response-example.json
-  - type: ErrorCatalog
-    url: errors/amazon-augmented-ai-problem-types.yml
-  - type: Conformance
-    url: conformance/amazon-augmented-ai-conformance.yml
-  - type: Lifecycle
-    url: lifecycle/amazon-augmented-ai-lifecycle.yml
+  - aid: amazon-augmented-ai:amazon-augmented-ai-human-loops-api
+    name: Amazon Augmented AI Human Loops API
+    description: Operations for creating and managing human review loops
+    humanURL: https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html
+    baseURL: https://a2i-runtime.sagemaker.us-east-1.amazonaws.com
+    tags:
+      - Human Loops
+    properties:
+      - type: OpenAPI
+        url: openapi/amazon-augmented-ai-human-loops-api-openapi.yml
+      - type: SpectralRules
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/rules/amazon-augmented-ai-spectral-rules.yml
+      - type: Vocabulary
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/vocabulary/amazon-augmented-ai-vocabulary.yaml
+      - type: JSONSchema
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-schema/a2i-human-loop-summary-schema.json
+      - type: JSONSchema
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-schema/a2i-start-human-loop-request-schema.json
+      - type: JSONStructure
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-structure/a2i-human-loop-summary-structure.json
+      - type: JSONStructure
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-structure/a2i-describe-human-loop-response-structure.json
+      - type: JSONLD
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-ld/amazon-augmented-ai-context.jsonld
+      - type: Example
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/examples/a2i-start-human-loop-request-example.json
+      - type: Example
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/examples/a2i-describe-human-loop-response-example.json
+      - type: ErrorCatalog
+        url: errors/amazon-augmented-ai-problem-types.yml
+      - type: Conformance
+        url: conformance/amazon-augmented-ai-conformance.yml
+      - type: Lifecycle
+        url: lifecycle/amazon-augmented-ai-lifecycle.yml
 common:
   - type: MCPServer
     url: mcp/amazon-augmented-ai-mcp.yml

@@ -1,0 +1,135 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Augmented AI (A2I) Human Loops API",
+    "version": "2019-11-07"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Human Loops",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Augmented AI List Human Loops",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://a2i-runtime.sagemaker.us-east-1.amazonaws.com/human-loops",
+            "params": [
+              {
+                "name": "CreationTimeAfter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "CreationTimeBefore",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "FlowDefinitionArn",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "SortOrder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns information about human review work items, called human loops."
+        },
+        {
+          "info": {
+            "name": "Amazon Augmented AI Start Human Loop",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://a2i-runtime.sagemaker.us-east-1.amazonaws.com/human-loops",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts a human loop, provided that at least one activation condition is met."
+        },
+        {
+          "info": {
+            "name": "Amazon Augmented AI Describe Human Loop",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://a2i-runtime.sagemaker.us-east-1.amazonaws.com/human-loops/:HumanLoopName",
+            "params": [
+              {
+                "name": "HumanLoopName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns information about the specified human loop."
+        },
+        {
+          "info": {
+            "name": "Amazon Augmented AI Delete Human Loop",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://a2i-runtime.sagemaker.us-east-1.amazonaws.com/human-loops/:HumanLoopName",
+            "params": [
+              {
+                "name": "HumanLoopName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes the specified human loop for a flow definition."
+        },
+        {
+          "info": {
+            "name": "Amazon Augmented AI Stop Human Loop",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://a2i-runtime.sagemaker.us-east-1.amazonaws.com/human-loops/stop",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stops the specified human loop."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

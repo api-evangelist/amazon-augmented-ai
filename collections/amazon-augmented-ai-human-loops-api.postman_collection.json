@@ -1,0 +1,576 @@
+{
+  "item": [
+    {
+      "id": "6a63b4fe-8414-4255-b2e5-cb8af4abae77",
+      "name": "Human Loops",
+      "description": {
+        "content": "Operations for creating and managing human review loops",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c2c4c41a-dfe3-412b-b9d1-c71813ac658f",
+          "name": "Amazon Augmented AI List Human Loops",
+          "request": {
+            "name": "Amazon Augmented AI List Human Loops",
+            "description": {
+              "content": "Returns information about human review work items, called human loops.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "human-loops"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "CreationTimeAfter",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "CreationTimeBefore",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "FlowDefinitionArn",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "SortOrder",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "NextToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxResults",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "48de59e3-ff91-4c81-a341-82f69204272b",
+              "name": "Human loops listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "human-loops"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CreationTimeAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "CreationTimeBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "FlowDefinitionArn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HumanLoopSummaries\": [\n    {\n      \"HumanLoopName\": \"my-human-loop\",\n      \"HumanLoopStatus\": \"Completed\",\n      \"CreationTime\": \"2024-01-15T10:30:00Z\",\n      \"FlowDefinitionArn\": \"arn:aws:sagemaker:us-east-1:123456789012:flow-definition/my-flow\"\n    }\n  ],\n  \"NextToken\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64bb47c7-ca89-4a59-b5de-029c31d0965b",
+          "name": "Amazon Augmented AI Start Human Loop",
+          "request": {
+            "name": "Amazon Augmented AI Start Human Loop",
+            "description": {
+              "content": "Starts a human loop, provided that at least one activation condition is met.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "human-loops"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"HumanLoopName\": \"<string>\",\n  \"FlowDefinitionArn\": \"<string>\",\n  \"HumanLoopInput\": {\n    \"InputContent\": \"<string>\"\n  },\n  \"DataAttributes\": {\n    \"ContentClassifiers\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "564e98d8-9408-4922-866e-918bed8af746",
+              "name": "Human loop started successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "human-loops"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"HumanLoopName\": \"my-human-loop\",\n  \"FlowDefinitionArn\": \"arn:aws:sagemaker:us-east-1:123456789012:flow-definition/my-flow\",\n  \"HumanLoopInput\": {\n    \"InputContent\": \"{\\\"taskObject\\\": \\\"s3://my-bucket/image.jpg\\\"}\"\n  },\n  \"DataAttributes\": {\n    \"ContentClassifiers\": [\n      \"FreeOfPersonallyIdentifiableInformation\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HumanLoopArn\": \"arn:aws:sagemaker:us-east-1:123456789012:human-loop/my-human-loop\",\n  \"HumanLoopActivationResults\": {\n    \"HumanLoopActivationReason\": \"ConditionMet\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dceeb8ac-b41e-46cd-9bd2-0874c0733cb1",
+          "name": "Amazon Augmented AI Describe Human Loop",
+          "request": {
+            "name": "Amazon Augmented AI Describe Human Loop",
+            "description": {
+              "content": "Returns information about the specified human loop.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "human-loops",
+                ":HumanLoopName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "HumanLoopName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d6df350-f9fb-46d9-a649-17717a1a01c5",
+              "name": "Human loop described successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "human-loops",
+                    ":HumanLoopName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "HumanLoopName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"HumanLoopName\": \"my-human-loop\",\n  \"HumanLoopArn\": \"arn:aws:sagemaker:us-east-1:123456789012:human-loop/my-human-loop\",\n  \"FlowDefinitionArn\": \"arn:aws:sagemaker:us-east-1:123456789012:flow-definition/my-flow\",\n  \"HumanLoopStatus\": \"Completed\",\n  \"CreationTime\": \"2024-01-15T10:30:00Z\",\n  \"HumanLoopOutput\": {\n    \"OutputS3Uri\": \"s3://my-bucket/output/my-human-loop.json\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49789f14-a589-4a6e-8c0f-09bba25dc446",
+          "name": "Amazon Augmented AI Delete Human Loop",
+          "request": {
+            "name": "Amazon Augmented AI Delete Human Loop",
+            "description": {
+              "content": "Deletes the specified human loop for a flow definition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "human-loops",
+                ":HumanLoopName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "HumanLoopName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6686696d-97e1-4536-8298-399d81ac230c",
+              "name": "Human loop deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "human-loops",
+                    ":HumanLoopName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "HumanLoopName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49bf6bf0-ac1f-46b7-b47d-369a2e47af93",
+          "name": "Amazon Augmented AI Stop Human Loop",
+          "request": {
+            "name": "Amazon Augmented AI Stop Human Loop",
+            "description": {
+              "content": "Stops the specified human loop.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "human-loops",
+                "stop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"HumanLoopName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4dd5e155-5b0d-4d4a-a22c-c1822984d829",
+              "name": "Human loop stopped successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "human-loops",
+                    "stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"HumanLoopName\": \"my-human-loop\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://a2i-runtime.sagemaker.us-east-1.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6121677c-b8eb-4d80-8894-637db971b054",
+    "name": "Amazon Augmented AI (A2I) Human Loops API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon Augmented AI (Amazon A2I) is a machine learning service that makes it easy to build the workflows required for human review of ML predictions. Amazon A2I brings human review to all developers, removing the undifferentiated heavy lifting associated with building human review systems or managing large numbers of human reviewers.\n\nContact Support:\n Name: AWS Support",
+      "type": "text/plain"
+    }
+  }
+}

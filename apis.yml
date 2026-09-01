@@ -31,7 +31,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-augmented-ai.png
 tags:
   - Amazon Augmented AI
-  - Human In The Loop
+  - Human-in-the-Loop
   - Machine-Learning
   - AI Review
   - AWS

@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Amazon Augmented AI (A2I) Human Loops API
   description: Amazon Augmented AI (Amazon A2I) is a machine learning service that makes it easy to build the workflows required for human review of ML predictions. Amazon A2I brings human review to all developers, removing the undifferentiated heavy lifting associated with building human review systems or managing large numbers of human reviewers.
@@ -210,6 +210,103 @@ paths:
                   value: {}
 components:
   schemas:
+    ListHumanLoopsResponse:
+      type: object
+      properties:
+        HumanLoopSummaries:
+          type: array
+          items:
+            $ref: '#/components/schemas/HumanLoopSummary'
+        NextToken:
+          type: string
+    HumanLoopInput:
+      type: object
+      required:
+      - InputContent
+      properties:
+        InputContent:
+          type: string
+          description: Serialized input from the human loop. The input must be a string representation of a file in JSON format.
+    StartHumanLoopResponse:
+      type: object
+      properties:
+        HumanLoopArn:
+          type: string
+          description: The Amazon Resource Name (ARN) of the human loop
+        HumanLoopActivationResults:
+          $ref: '#/components/schemas/HumanLoopActivationResults'
+    StartHumanLoopRequest:
+      type: object
+      required:
+      - HumanLoopName
+      - FlowDefinitionArn
+      - HumanLoopInput
+      properties:
+        HumanLoopName:
+          type: string
+          description: The name of the human loop
+        FlowDefinitionArn:
+          type: string
+          description: The Amazon Resource Name (ARN) of the flow definition associated with this human loop
+        HumanLoopInput:
+          $ref: '#/components/schemas/HumanLoopInput'
+        DataAttributes:
+          $ref: '#/components/schemas/DataAttributes'
+    DeleteHumanLoopResponse:
+      type: object
+    HumanLoopOutput:
+      type: object
+      properties:
+        OutputS3Uri:
+          type: string
+          description: The location of the Amazon S3 object where Amazon A2I stores your human loop output.
+    StopHumanLoopResponse:
+      type: object
+    HumanLoopActivationResults:
+      type: object
+      properties:
+        HumanLoopActivationReason:
+          type: string
+        HumanLoopActivationConditionsEvaluationResults:
+          type: string
+    StopHumanLoopRequest:
+      type: object
+      required:
+      - HumanLoopName
+      properties:
+        HumanLoopName:
+          type: string
+    DataAttributes:
+      type: object
+      properties:
+        ContentClassifiers:
+          type: array
+          items:
+            type: string
+            enum:
+            - FreeOfPersonallyIdentifiableInformation
+            - FreeOfAdultContent
+    HumanLoopSummary:
+      type: object
+      properties:
+        HumanLoopName:
+          type: string
+          description: The name of the human loop
+        HumanLoopStatus:
+          type: string
+          enum:
+          - InProgress
+          - Failed
+          - Completed
+          - Stopped
+          - Stopping
+        CreationTime:
+          type: string
+          format: date-time
+        FailureReason:
+          type: string
+        FlowDefinitionArn:
+          type: string
     DescribeHumanLoopResponse:
       type: object
       properties:
@@ -236,103 +333,6 @@ components:
           type: string
         HumanLoopOutput:
           $ref: '#/components/schemas/HumanLoopOutput'
-    StopHumanLoopRequest:
-      type: object
-      required:
-      - HumanLoopName
-      properties:
-        HumanLoopName:
-          type: string
-    HumanLoopOutput:
-      type: object
-      properties:
-        OutputS3Uri:
-          type: string
-          description: The location of the Amazon S3 object where Amazon A2I stores your human loop output.
-    HumanLoopActivationResults:
-      type: object
-      properties:
-        HumanLoopActivationReason:
-          type: string
-        HumanLoopActivationConditionsEvaluationResults:
-          type: string
-    HumanLoopSummary:
-      type: object
-      properties:
-        HumanLoopName:
-          type: string
-          description: The name of the human loop
-        HumanLoopStatus:
-          type: string
-          enum:
-          - InProgress
-          - Failed
-          - Completed
-          - Stopped
-          - Stopping
-        CreationTime:
-          type: string
-          format: date-time
-        FailureReason:
-          type: string
-        FlowDefinitionArn:
-          type: string
-    DeleteHumanLoopResponse:
-      type: object
-    StartHumanLoopRequest:
-      type: object
-      required:
-      - HumanLoopName
-      - FlowDefinitionArn
-      - HumanLoopInput
-      properties:
-        HumanLoopName:
-          type: string
-          description: The name of the human loop
-        FlowDefinitionArn:
-          type: string
-          description: The Amazon Resource Name (ARN) of the flow definition associated with this human loop
-        HumanLoopInput:
-          $ref: '#/components/schemas/HumanLoopInput'
-        DataAttributes:
-          $ref: '#/components/schemas/DataAttributes'
-    HumanLoopInput:
-      type: object
-      required:
-      - InputContent
-      properties:
-        InputContent:
-          type: string
-          description: Serialized input from the human loop. The input must be a string representation of a file in JSON format.
-    ListHumanLoopsResponse:
-      type: object
-      properties:
-        HumanLoopSummaries:
-          type: array
-          items:
-            $ref: '#/components/schemas/HumanLoopSummary'
-        NextToken:
-          type: string
-    StopHumanLoopResponse:
-      type: object
-    StartHumanLoopResponse:
-      type: object
-      properties:
-        HumanLoopArn:
-          type: string
-          description: The Amazon Resource Name (ARN) of the human loop
-        HumanLoopActivationResults:
-          $ref: '#/components/schemas/HumanLoopActivationResults'
-    DataAttributes:
-      type: object
-      properties:
-        ContentClassifiers:
-          type: array
-          items:
-            type: string
-            enum:
-            - FreeOfPersonallyIdentifiableInformation
-            - FreeOfAdultContent
   securitySchemes:
     sigv4:
       type: apiKey

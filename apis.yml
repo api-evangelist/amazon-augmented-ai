@@ -1,9 +1,9 @@
 aid: amazon-augmented-ai
 name: Amazon Augmented AI
-description: >-
-  Amazon Augmented AI (Amazon A2I) is a machine learning service that makes it easy to build the workflows required for
-  human review of ML predictions. Amazon A2I brings human review to all developers, removing the undifferentiated heavy
-  lifting associated with building human review systems or managing large numbers of human reviewers.
+description: Amazon Augmented AI (Amazon A2I) is a machine learning service that makes it easy to build
+  the workflows required for human review of ML predictions. Amazon A2I brings human review to all developers,
+  removing the undifferentiated heavy lifting associated with building human review systems or managing
+  large numbers of human reviewers.
 type: Index
 deliveryModel:
   model: unknown
@@ -31,119 +31,115 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-augmented-ai.png
 tags:
-  - Amazon Augmented AI
-  - Human-in-the-Loop
-  - Machine-Learning
-  - AI Review
-  - AWS
+- Amazon Augmented AI
+- Human-in-the-Loop
+- Machine-Learning
+- AI Review
+- AWS
 tags_raw:
-  - Amazon Augmented AI
-  - Human In The Loop
-  - Machine Learning
-  - AI Review
-  - AWS
+- Amazon Augmented AI
+- Human In The Loop
+- Machine Learning
+- AI Review
+- AWS
 url: https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-06-20'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
-  - aid: amazon-augmented-ai:amazon-augmented-ai-human-loops-api
-    name: Amazon Augmented AI Human Loops API
-    description: Operations for creating and managing human review loops
-    humanURL: https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html
-    baseURL: https://a2i-runtime.sagemaker.us-east-1.amazonaws.com
-    tags:
-      - Human Loops
-    properties:
-      - type: OpenAPI
-        url: openapi/amazon-augmented-ai-human-loops-api-openapi.yml
-      - type: SpectralRules
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/rules/amazon-augmented-ai-spectral-rules.yml
-      - type: Vocabulary
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/vocabulary/amazon-augmented-ai-vocabulary.yaml
-      - type: JSONSchema
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-schema/a2i-human-loop-summary-schema.json
-      - type: JSONSchema
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-schema/a2i-start-human-loop-request-schema.json
-      - type: JSONStructure
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-structure/a2i-human-loop-summary-structure.json
-      - type: JSONStructure
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-structure/a2i-describe-human-loop-response-structure.json
-      - type: JSONLD
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-ld/amazon-augmented-ai-context.jsonld
-      - type: Example
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/examples/a2i-start-human-loop-request-example.json
-      - type: Example
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/examples/a2i-describe-human-loop-response-example.json
-      - type: ErrorCatalog
-        url: errors/amazon-augmented-ai-problem-types.yml
-      - type: Conformance
-        url: conformance/amazon-augmented-ai-conformance.yml
-      - type: Lifecycle
-        url: lifecycle/amazon-augmented-ai-lifecycle.yml
+- aid: amazon-augmented-ai:amazon-augmented-ai-human-loops-api
+  name: Amazon Augmented AI Human Loops API
+  description: Operations for creating and managing human review loops
+  humanURL: https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html
+  baseURL: https://a2i-runtime.sagemaker.us-east-1.amazonaws.com
+  tags:
+  - Human Loops
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-augmented-ai-human-loops-api-openapi.yml
+  - type: SpectralRules
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/rules/amazon-augmented-ai-spectral-rules.yml
+  - type: Vocabulary
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/vocabulary/amazon-augmented-ai-vocabulary.yaml
+  - type: JSONSchema
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-schema/a2i-human-loop-summary-schema.json
+  - type: JSONSchema
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-schema/a2i-start-human-loop-request-schema.json
+  - type: JSONStructure
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-structure/a2i-human-loop-summary-structure.json
+  - type: JSONStructure
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-structure/a2i-describe-human-loop-response-structure.json
+  - type: JSONLD
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/json-ld/amazon-augmented-ai-context.jsonld
+  - type: Example
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/examples/a2i-start-human-loop-request-example.json
+  - type: Example
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-augmented-ai/refs/heads/main/examples/a2i-describe-human-loop-response-example.json
+  - type: ErrorCatalog
+    url: errors/amazon-augmented-ai-problem-types.yml
+  - type: Conformance
+    url: conformance/amazon-augmented-ai-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-augmented-ai-lifecycle.yml
 common:
-  - type: X-MCPServerCandidate
-    url: mcp/amazon-augmented-ai-mcp.yml
-    note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
-  - type: Overlay
-    url: overlays/amazon-augmented-ai-openapi-overlay.yaml
-  - type: AgenticAccess
-    url: agentic-access/amazon-augmented-ai-agentic-access.yml
-  - type: VulnerabilityDisclosure
-    url: security/amazon-augmented-ai-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/amazon-augmented-ai-domain-security.yml
-  - type: Authentication
-    url: authentication/amazon-augmented-ai-authentication.yml
-  - type: Packages
-    url: packages/amazon-augmented-ai-packages.yml
-  - type: LLMsTxt
-    url: llms/amazon-augmented-ai-llms.txt
-  - type: WellKnown
-    url: well-known/amazon-augmented-ai-well-known.yml
-  - type: Features
-    data:
-      - Human review integration for Amazon Rekognition and Amazon Textract
-      - Custom flow definitions for any ML use case
-      - Built-in worker task templates for common review tasks
-      - Integration with Amazon SageMaker Ground Truth for workforce management
-      - Private, vendor, and Amazon Mechanical Turk workforce support
-      - Automatic routing based on ML confidence scores
-      - Audit trail with evidence of human review decisions
-      - Scalable workforce management across thousands of reviewers
-      - Pre-built UI templates for image and text review tasks
-      - Compliance support with PII content classifiers
-  - type: UseCases
-    data:
-      - Review low-confidence document text extraction results
-      - Validate image classification predictions before deployment
-      - Moderate user-generated content with human reviewers
-      - Ensure accuracy of medical record processing
-      - Verify identity document data extraction results
-      - Build training datasets with human-verified labels
-  - type: Integrations
-    data:
-      - Amazon SageMaker
-      - Amazon Rekognition
-      - Amazon Textract
-      - Amazon S3
-      - Amazon SageMaker Ground Truth
-      - Amazon Mechanical Turk
-      - AWS IAM
-      - Amazon CloudWatch
-      - AWS Lambda
-      - Amazon SNS
+- type: Website
+  url: https://amazon.com
+- type: X-MCPServerCandidate
+  url: mcp/amazon-augmented-ai-mcp.yml
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+    — a tool list derived from the published API contracts, not an existing server. The scorer already
+    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+    surfaces with a server that does not exist.'
+- type: Overlay
+  url: overlays/amazon-augmented-ai-openapi-overlay.yaml
+- type: AgenticAccess
+  url: agentic-access/amazon-augmented-ai-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-augmented-ai-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-augmented-ai-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-augmented-ai-authentication.yml
+- type: Packages
+  url: packages/amazon-augmented-ai-packages.yml
+- type: LLMsTxt
+  url: llms/amazon-augmented-ai-llms.txt
+- type: WellKnown
+  url: well-known/amazon-augmented-ai-well-known.yml
+- type: Features
+  data:
+  - Human review integration for Amazon Rekognition and Amazon Textract
+  - Custom flow definitions for any ML use case
+  - Built-in worker task templates for common review tasks
+  - Integration with Amazon SageMaker Ground Truth for workforce management
+  - Private, vendor, and Amazon Mechanical Turk workforce support
+  - Automatic routing based on ML confidence scores
+  - Audit trail with evidence of human review decisions
+  - Scalable workforce management across thousands of reviewers
+  - Pre-built UI templates for image and text review tasks
+  - Compliance support with PII content classifiers
+- type: UseCases
+  data:
+  - Review low-confidence document text extraction results
+  - Validate image classification predictions before deployment
+  - Moderate user-generated content with human reviewers
+  - Ensure accuracy of medical record processing
+  - Verify identity document data extraction results
+  - Build training datasets with human-verified labels
+- type: Integrations
+  data:
+  - Amazon SageMaker
+  - Amazon Rekognition
+  - Amazon Textract
+  - Amazon S3
+  - Amazon SageMaker Ground Truth
+  - Amazon Mechanical Turk
+  - AWS IAM
+  - Amazon CloudWatch
+  - AWS Lambda
+  - Amazon SNS
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
 x-parent: aws
 x-relationship: product

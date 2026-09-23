@@ -210,82 +210,6 @@ paths:
                   value: {}
 components:
   schemas:
-    ListHumanLoopsResponse:
-      type: object
-      properties:
-        HumanLoopSummaries:
-          type: array
-          items:
-            $ref: '#/components/schemas/HumanLoopSummary'
-        NextToken:
-          type: string
-    HumanLoopInput:
-      type: object
-      required:
-      - InputContent
-      properties:
-        InputContent:
-          type: string
-          description: Serialized input from the human loop. The input must be a string representation of a file in JSON format.
-    StartHumanLoopResponse:
-      type: object
-      properties:
-        HumanLoopArn:
-          type: string
-          description: The Amazon Resource Name (ARN) of the human loop
-        HumanLoopActivationResults:
-          $ref: '#/components/schemas/HumanLoopActivationResults'
-    StartHumanLoopRequest:
-      type: object
-      required:
-      - HumanLoopName
-      - FlowDefinitionArn
-      - HumanLoopInput
-      properties:
-        HumanLoopName:
-          type: string
-          description: The name of the human loop
-        FlowDefinitionArn:
-          type: string
-          description: The Amazon Resource Name (ARN) of the flow definition associated with this human loop
-        HumanLoopInput:
-          $ref: '#/components/schemas/HumanLoopInput'
-        DataAttributes:
-          $ref: '#/components/schemas/DataAttributes'
-    DeleteHumanLoopResponse:
-      type: object
-    HumanLoopOutput:
-      type: object
-      properties:
-        OutputS3Uri:
-          type: string
-          description: The location of the Amazon S3 object where Amazon A2I stores your human loop output.
-    StopHumanLoopResponse:
-      type: object
-    HumanLoopActivationResults:
-      type: object
-      properties:
-        HumanLoopActivationReason:
-          type: string
-        HumanLoopActivationConditionsEvaluationResults:
-          type: string
-    StopHumanLoopRequest:
-      type: object
-      required:
-      - HumanLoopName
-      properties:
-        HumanLoopName:
-          type: string
-    DataAttributes:
-      type: object
-      properties:
-        ContentClassifiers:
-          type: array
-          items:
-            type: string
-            enum:
-            - FreeOfPersonallyIdentifiableInformation
-            - FreeOfAdultContent
     HumanLoopSummary:
       type: object
       properties:
@@ -333,6 +257,82 @@ components:
           type: string
         HumanLoopOutput:
           $ref: '#/components/schemas/HumanLoopOutput'
+    DataAttributes:
+      type: object
+      properties:
+        ContentClassifiers:
+          type: array
+          items:
+            type: string
+            enum:
+            - FreeOfPersonallyIdentifiableInformation
+            - FreeOfAdultContent
+    HumanLoopOutput:
+      type: object
+      properties:
+        OutputS3Uri:
+          type: string
+          description: The location of the Amazon S3 object where Amazon A2I stores your human loop output.
+    StopHumanLoopResponse:
+      type: object
+    StartHumanLoopResponse:
+      type: object
+      properties:
+        HumanLoopArn:
+          type: string
+          description: The Amazon Resource Name (ARN) of the human loop
+        HumanLoopActivationResults:
+          $ref: '#/components/schemas/HumanLoopActivationResults'
+    HumanLoopActivationResults:
+      type: object
+      properties:
+        HumanLoopActivationReason:
+          type: string
+        HumanLoopActivationConditionsEvaluationResults:
+          type: string
+    HumanLoopInput:
+      type: object
+      required:
+      - InputContent
+      properties:
+        InputContent:
+          type: string
+          description: Serialized input from the human loop. The input must be a string representation of a file in JSON format.
+    StopHumanLoopRequest:
+      type: object
+      required:
+      - HumanLoopName
+      properties:
+        HumanLoopName:
+          type: string
+    ListHumanLoopsResponse:
+      type: object
+      properties:
+        HumanLoopSummaries:
+          type: array
+          items:
+            $ref: '#/components/schemas/HumanLoopSummary'
+        NextToken:
+          type: string
+    StartHumanLoopRequest:
+      type: object
+      required:
+      - HumanLoopName
+      - FlowDefinitionArn
+      - HumanLoopInput
+      properties:
+        HumanLoopName:
+          type: string
+          description: The name of the human loop
+        FlowDefinitionArn:
+          type: string
+          description: The Amazon Resource Name (ARN) of the flow definition associated with this human loop
+        HumanLoopInput:
+          $ref: '#/components/schemas/HumanLoopInput'
+        DataAttributes:
+          $ref: '#/components/schemas/DataAttributes'
+    DeleteHumanLoopResponse:
+      type: object
   securitySchemes:
     sigv4:
       type: apiKey

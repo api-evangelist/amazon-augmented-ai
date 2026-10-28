@@ -66,83 +66,186 @@
 
 Amazon Augmented AI (Amazon A2I) is a machine learning service that makes it easy to build the workflows required for human review of ML predictions. Amazon A2I brings human review to all developers, removing the undifferentiated heavy lifting associated with building human review systems or managing large numbers of human reviewers.
 
-## Overview
+**Areas:** Amazon Augmented AI · Human-in-the-Loop · Machine Learning · AI Review · AWS
 
-The Amazon Augmented AI runtime API enables programmatic control over human loops — the review tasks routed to human workers when ML predictions need human judgment. It integrates with Amazon Rekognition, Textract, and custom ML workflows.
+## Amazon Augmented AI on APIs.io
 
-## API Documentation
+Everything profiled for Amazon Augmented AI is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-augmented-ai/](https://apis.io/providers/amazon-augmented-ai/)** — or go straight to one of the APIs or properties below.
 
-- **Human URL:** https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html
-- **Base URL:** https://a2i-runtime.sagemaker.us-east-1.amazonaws.com
+### APIs (1)
 
-## Features
+- [Amazon Augmented AI Human Loops API](https://apis.io/apis/amazon-augmented-ai/amazon-augmented-ai-human-loops-api/) — Operations for creating and managing human review loops
 
-- Human review integration for Amazon Rekognition and Amazon Textract
-- Custom flow definitions for any ML use case
-- Built-in worker task templates for common review tasks
-- Integration with Amazon SageMaker Ground Truth for workforce management
-- Private, vendor, and Amazon Mechanical Turk workforce support
-- Automatic routing based on ML confidence scores
-- Audit trail with evidence of human review decisions
-- Scalable workforce management across thousands of reviewers
-- Pre-built UI templates for image and text review tasks
-- Compliance support with PII content classifiers
+### Published properties
 
-## Use Cases
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- Review low-confidence document text extraction results
-- Validate image classification predictions before deployment
-- Moderate user-generated content with human reviewers
-- Ensure accuracy of medical record processing
-- Verify identity document data extraction results
-- Build training datasets with human-verified labels
+#### MCP servers (1)
 
-## Artifacts
+Model Context Protocol servers that expose the API to agents.
 
-### OpenAPI Specification
-`openapi/amazon-augmented-ai-openapi.yml`
+- [amazon-augmented-ai](https://apis.io/servers/amazon-augmented-ai/amazon-augmented-ai/)
 
-Complete OpenAPI 3.1.0 specification covering all Augmented AI API paths.
+#### Agentic access (1)
 
-### Spectral Rules
-`rules/amazon-augmented-ai-spectral-rules.yml`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### Naftiko Capabilities
-- `capabilities/shared/a2i-api.yaml` — Shared per-API capability definition
-- `capabilities/human-review-workflow.yaml` — Workflow capability for human review
+- [Amazon Augmented Ai Agentic Access](https://apis.io/agentic-access/amazon-augmented-ai/amazon-augmented-ai-agentic-access/)
 
-### Vocabulary
-`vocabulary/amazon-augmented-ai-vocabulary.yaml`
+#### JSON Schema (12)
 
-### JSON Schemas
-`json-schema/` — 12 JSON Schema files for all objects.
+The data models the API reads and writes.
 
-### JSON Structures
-`json-structure/` — 12 JSON Structure files.
+- [DataAttributes](https://apis.io/schemas/amazon-augmented-ai/a2i-data-attributes/)
+- [DeleteHumanLoopResponse](https://apis.io/schemas/amazon-augmented-ai/a2i-delete-human-loop-response/)
+- [DescribeHumanLoopResponse](https://apis.io/schemas/amazon-augmented-ai/a2i-describe-human-loop-response/)
+- [HumanLoopActivationResults](https://apis.io/schemas/amazon-augmented-ai/a2i-human-loop-activation-results/)
+- [HumanLoopInput](https://apis.io/schemas/amazon-augmented-ai/a2i-human-loop-input/)
+- [HumanLoopOutput](https://apis.io/schemas/amazon-augmented-ai/a2i-human-loop-output/)
+- [HumanLoopSummary](https://apis.io/schemas/amazon-augmented-ai/a2i-human-loop-summary/)
+- [ListHumanLoopsResponse](https://apis.io/schemas/amazon-augmented-ai/a2i-list-human-loops-response/)
+- [StartHumanLoopRequest](https://apis.io/schemas/amazon-augmented-ai/a2i-start-human-loop-request/)
+- [StartHumanLoopResponse](https://apis.io/schemas/amazon-augmented-ai/a2i-start-human-loop-response/)
+- [StopHumanLoopRequest](https://apis.io/schemas/amazon-augmented-ai/a2i-stop-human-loop-request/)
+- [StopHumanLoopResponse](https://apis.io/schemas/amazon-augmented-ai/a2i-stop-human-loop-response/)
 
-### JSON-LD Context
-`json-ld/amazon-augmented-ai-context.jsonld`
+#### JSON Structure (12)
 
-### Examples
-`examples/` — 12 example JSON files.
+Data models expressed in JSON Structure.
 
-## Integrations
+- [A2I Data Attributes Structure](https://apis.io/json-structure/amazon-augmented-ai/a2i-data-attributes-structure/)
+- [A2I Delete Human Loop Response Structure](https://apis.io/json-structure/amazon-augmented-ai/a2i-delete-human-loop-response-structure/)
+- [A2I Describe Human Loop Response Structure](https://apis.io/json-structure/amazon-augmented-ai/a2i-describe-human-loop-response-structure/)
+- [A2I Human Loop Activation Results Structure](https://apis.io/json-structure/amazon-augmented-ai/a2i-human-loop-activation-results-structure/)
+- [A2I Human Loop Input Structure](https://apis.io/json-structure/amazon-augmented-ai/a2i-human-loop-input-structure/)
+- [A2I Human Loop Output Structure](https://apis.io/json-structure/amazon-augmented-ai/a2i-human-loop-output-structure/)
+- [A2I Human Loop Summary Structure](https://apis.io/json-structure/amazon-augmented-ai/a2i-human-loop-summary-structure/)
+- [A2I List Human Loops Response Structure](https://apis.io/json-structure/amazon-augmented-ai/a2i-list-human-loops-response-structure/)
+- [A2I Start Human Loop Request Structure](https://apis.io/json-structure/amazon-augmented-ai/a2i-start-human-loop-request-structure/)
+- [A2I Start Human Loop Response Structure](https://apis.io/json-structure/amazon-augmented-ai/a2i-start-human-loop-response-structure/)
+- [A2I Stop Human Loop Request Structure](https://apis.io/json-structure/amazon-augmented-ai/a2i-stop-human-loop-request-structure/)
+- [A2I Stop Human Loop Response Structure](https://apis.io/json-structure/amazon-augmented-ai/a2i-stop-human-loop-response-structure/)
 
-- Amazon SageMaker
-- Amazon Rekognition
-- Amazon Textract
-- Amazon S3
-- Amazon SageMaker Ground Truth
-- Amazon Mechanical Turk
-- AWS IAM
-- Amazon CloudWatch
-- AWS Lambda
-- Amazon SNS
+#### JSON-LD (1)
 
-## Tags
+Linked-data contexts for the provider's vocabulary.
 
-Amazon Augmented AI, Human In The Loop, Machine Learning, AI Review, AWS
+- [Amazon Augmented Ai Context](https://apis.io/jsonld/amazon-augmented-ai/amazon-augmented-ai-context/)
 
-## Maintainers
+#### Vocabulary (1)
 
-- Kin Lane (kin@apievangelist.com)
+The provider's domain terms, defined.
+
+- [Amazon Augmented Ai Vocabulary](https://apis.io/vocabularies/amazon-augmented-ai/amazon-augmented-ai-vocabulary/)
+
+#### Examples (12)
+
+Example requests and responses.
+
+- [A2I Data Attributes Example](https://apis.io/examples/amazon-augmented-ai/a2i-data-attributes-example/)
+- [A2I Delete Human Loop Response Example](https://apis.io/examples/amazon-augmented-ai/a2i-delete-human-loop-response-example/)
+- [A2I Describe Human Loop Response Example](https://apis.io/examples/amazon-augmented-ai/a2i-describe-human-loop-response-example/)
+- [A2I Human Loop Activation Results Example](https://apis.io/examples/amazon-augmented-ai/a2i-human-loop-activation-results-example/)
+- [A2I Human Loop Input Example](https://apis.io/examples/amazon-augmented-ai/a2i-human-loop-input-example/)
+- [A2I Human Loop Output Example](https://apis.io/examples/amazon-augmented-ai/a2i-human-loop-output-example/)
+- [A2I Human Loop Summary Example](https://apis.io/examples/amazon-augmented-ai/a2i-human-loop-summary-example/)
+- [A2I List Human Loops Response Example](https://apis.io/examples/amazon-augmented-ai/a2i-list-human-loops-response-example/)
+- [A2I Start Human Loop Request Example](https://apis.io/examples/amazon-augmented-ai/a2i-start-human-loop-request-example/)
+- [A2I Start Human Loop Response Example](https://apis.io/examples/amazon-augmented-ai/a2i-start-human-loop-response-example/)
+- [A2I Stop Human Loop Request Example](https://apis.io/examples/amazon-augmented-ai/a2i-stop-human-loop-request-example/)
+- [A2I Stop Human Loop Response Example](https://apis.io/examples/amazon-augmented-ai/a2i-stop-human-loop-response-example/)
+
+#### Collections (1)
+
+Postman and Open Collection request collections.
+
+- [Amazon Augmented AI (A2I) Human Loops API](https://apis.io/collections/amazon-augmented-ai/open-amazon-augmented-ai-human-loops-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Amazon Augmented Ai Openapi Overlay](https://apis.io/overlays/amazon-augmented-ai/amazon-augmented-ai-openapi-overlay/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon Augmented AI — jsonschema rules](https://apis.io/rules/amazon-augmented-ai/amazon-augmented-ai-jsonschema-spectral-rules/)
+- [Amazon Augmented AI API Rules](https://apis.io/rules/amazon-augmented-ai/amazon-augmented-ai-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Augmented Ai Authentication](https://apis.io/security/amazon-augmented-ai/amazon-augmented-ai-authentication/)
+- [Amazon Augmented Ai Domain Security](https://apis.io/security/amazon-augmented-ai/amazon-augmented-ai-domain-security/)
+- [Amazon Augmented Ai Vulnerability Disclosure](https://apis.io/security/amazon-augmented-ai/amazon-augmented-ai-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Augmented Ai Plans Pricing](https://apis.io/plans/amazon-augmented-ai/amazon-augmented-ai-plans-pricing/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://aws.amazon.com/augmented-ai/)
+- [Pricing](https://aws.amazon.com/pricing/?nc2=h_pr_hub)
+
+## API Evangelist rating
+
+**Kin Score 32.6** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 65.5 |
+| Contract governance | 31.8 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 10.5 |
+
+**Agent readiness 26.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 20.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-augmented-ai/](https://apis.io/providers/amazon-augmented-ai/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon Augmented AI: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-augmented-ai/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
